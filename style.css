@@ -68,7 +68,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 900px;
+    max-width: 700px; /* تقليل العرض قليلاً ليناسب عرض المربع الفردي */
     margin: 0 auto;
 }
 
@@ -88,11 +88,12 @@ header p {
     font-size: 1.1rem;
 }
 
-/* شبكة عرض الأذكار */
+/* تعديل عرض الأذكار لتصبح في المنتصف وواحدة تلو الأخرى */
 .azkar-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
     margin-bottom: 40px;
 }
 
@@ -105,6 +106,8 @@ header p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%; /* لكي يأخذ المربع عرض مناسب ومتناسق */
+    max-width: 600px; /* أقصى عرض للمربع الواحد في المنتصف */
 }
 
 .card h3 {
