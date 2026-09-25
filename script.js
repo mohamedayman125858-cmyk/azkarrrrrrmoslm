@@ -1,10 +1,13 @@
 const themeToggleBtn = document.getElementById('theme-toggle');
 
-// تفعيل الوضع الداكن المحفوظ
-const currentTheme = localStorage.getItem('theme') || 'light';
+// تفعيل الوضع الداكن افتراضياً إذا لم يكن هناك اختيار مخزن مسبقاً
+const currentTheme = localStorage.getItem('theme') || 'dark';
 if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
     themeToggleBtn.textContent = '☀️';
+} else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    themeToggleBtn.textContent = '🌙';
 }
 
 themeToggleBtn.addEventListener('click', () => {
