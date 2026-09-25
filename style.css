@@ -1,3 +1,4 @@
+/* متغيرات الوضع الفاتح (الافتراضي) */
 :root {
     --bg-color: #f4f7f6;
     --card-bg: #ffffff;
@@ -8,9 +9,9 @@
     --btn-bg: #ffffff;
     --btn-border: #cccccc;
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    --done-bg: #e8f5e9;
 }
 
+/* متغيرات الوضع الداكن */
 [data-theme="dark"] {
     --bg-color: #121212;
     --card-bg: #1e1e1e;
@@ -21,7 +22,6 @@
     --btn-bg: #2d2d2d;
     --btn-border: #444444;
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    --done-bg: #1b3320;
 }
 
 * {
@@ -42,6 +42,7 @@ body {
     padding: 20px;
 }
 
+/* زر الوضع الداكن في أعلى اليسار */
 .theme-btn {
     position: fixed;
     top: 20px;
@@ -87,6 +88,7 @@ header p {
     font-size: 1.1rem;
 }
 
+/* شبكة عرض الأذكار */
 .azkar-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -103,19 +105,6 @@ header p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.1s ease, background-color 0.3s ease;
-}
-
-.card:active {
-    transform: scale(0.98);
-}
-
-.card.completed {
-    background-color: var(--done-bg);
-    border-top-color: #a5d6a7;
-    opacity: 0.85;
 }
 
 .card h3 {
@@ -130,41 +119,14 @@ header p {
     margin-bottom: 20px;
 }
 
-/* تنسيق أسفل الكارت (العداد وزر الإعادة) */
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid var(--btn-border);
-    padding-top: 15px;
-}
-
-.counter {
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-.counter b {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-}
-
-.reset-btn {
-    background-color: transparent;
-    border: 1px solid var(--btn-border);
+.count {
+    align-self: flex-start;
+    background-color: var(--bg-color);
     color: var(--text-muted);
-    padding: 5px 10px;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 20px;
     font-size: 0.85rem;
-    transition: 0.2s;
-}
-
-.reset-btn:hover {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-color: var(--primary-color);
+    font-weight: bold;
 }
 
 footer {
