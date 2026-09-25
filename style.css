@@ -1,4 +1,3 @@
-/* متغيرات الوضع الفاتح (الافتراضي) */
 :root {
     --bg-color: #f4f7f6;
     --card-bg: #ffffff;
@@ -68,7 +67,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 700px; /* تقليل العرض قليلاً ليناسب عرض المربع الفردي */
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -88,7 +87,6 @@ header p {
     font-size: 1.1rem;
 }
 
-/* تعديل عرض الأذكار لتصبح في المنتصف وواحدة تلو الأخرى */
 .azkar-grid {
     display: flex;
     flex-direction: column;
@@ -106,13 +104,21 @@ header p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%; /* لكي يأخذ المربع عرض مناسب ومتناسق */
-    max-width: 600px; /* أقصى عرض للمربع الواحد في المنتصف */
+    width: 100%;
+    max-width: 600px;
+}
+
+/* تنسيق رأس الكارت (العنوان والعداد جنباً إلى جنب) */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .card h3 {
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: 0;
     font-size: 1.3rem;
 }
 
@@ -122,14 +128,37 @@ header p {
     margin-bottom: 20px;
 }
 
-.count {
-    align-self: flex-start;
+/* تنسيق أسفل الكارت لجعل العناصر متناسقة (زر إعادة ويمينها أو يسارها حسب الرغبة) */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.counter {
     background-color: var(--bg-color);
     color: var(--text-muted);
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: bold;
+}
+
+.reset-btn {
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    border: 1px solid var(--btn-border);
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.reset-btn:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
 }
 
 footer {
