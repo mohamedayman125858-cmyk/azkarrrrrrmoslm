@@ -1,3 +1,33 @@
+// إضافة مكتبة الـ Confetti وتزويد كمية الفرقعة عند فتح الموقع
+const confettiScript = document.createElement('script');
+confettiScript.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js';
+confettiScript.onload = () => {
+    // تشغيل فرقعة قوية وكثيفة تغطي الشاشة
+    var duration = 2.5 * 1000;
+    var end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 7,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+        });
+        confetti({
+            particleCount: 7,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
+};
+document.head.appendChild(confettiScript);
+
+
 const themeToggleBtn = document.getElementById('theme-toggle');
 
 // تفعيل الوضع الداكن افتراضياً إذا لم يكن هناك اختيار مخزن مسبقاً
