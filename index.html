@@ -8,21 +8,25 @@
 </head>
 <body>
 
-    <!-- زر تبديل الوضع الداكن في أعلى اليسار -->
-    <button id="theme-toggle" class="theme-btn" aria-label="تبديل الوضع الداكن">🌙</button>
+    <!-- أزرار التحكم العلوية (الوضع الداكن + الانتقال بين الأذكار) بجانب بعضها -->
+    <div class="top-controls">
+        <button id="switch-mode-btn" class="switch-mode-btn" onclick="toggleAzkarMode()">🌙 أذكار المساء</button>
+        <button id="theme-toggle" class="theme-btn" aria-label="تبديل الوضع الداكن">🌙</button>
+    </div>
 
     <div class="container">
         <header>
-            <h1>أذكار الصباح</h1>
-            <p>❀ اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِينَا مُحَمَّدٍ ❀</p>
+            <h1 id="page-title">أذكار الصباح</h1>
+            <p id="page-subtitle">❀ اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِينَا مُحَمَّدٍ ❀</p>
         </header>
 
-        <main class="azkar-grid">
+        <!-- قسم أذكار الصباح (جميع الـ 31 ذكراً بدون نقصان) -->
+        <main id="sabah-section" class="azkar-grid">
             
             <!-- 1 -->
             <div class="card" onclick="decreaseCount(this)">
                 <h3>الذكر ( 1 )</h3>
-                <p>اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تأخذه سنة وِلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ.</p>
+                <p>اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تأخذه سنة وِلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَلَا يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ.</p>
                 <div class="card-footer">
                     <span class="counter" data-count="1">باقي: <b>1</b></span>
                     <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
@@ -322,6 +326,321 @@
             <!-- 31 -->
             <div class="card" onclick="decreaseCount(this)">
                 <h3>الذكر ( 31 )</h3>
+                <p>أستغفر الله وأتوب إليه.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="100">باقي: <b>100</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- قسم أذكار المساء (أعتباراً من الـ 31 ذكراً للمساء) -->
+        <main id="masa-section" class="azkar-grid" style="display: none;">
+            
+            <!-- 1 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 1 )</h3>
+                <p>اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تأخذه سنة وِلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَمَا فِي الْأَرْضِ وَلَا يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 2 )</h3>
+                <p>قُلْ هُوَ اللَّهُ أَحَدٌ، اللَّهُ الصَّمَدُ، لَمْ يَلِدْ وَلَمْ يُولَدْ، وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 3 )</h3>
+                <p>قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ، مِن شَرِّ مَا خَلَقَ، وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ، وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ، وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 4 )</h3>
+                <p>قُلْ أَعُوذُ بِرَبِّ النَّاسِ، مَلِكِ النَّاسِ، إِلَٰهِ النَّاسِ، مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ، الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ، مِنَ الْجِنَّةِ وَالنَّاسِ.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 5 )</h3>
+                <p>أمسينا وأمسى الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له، له الملك وله الحمد، وهو على كل شيء قدير، رب أسألك خير ما في هذه الليلة وخير ما بعدها، وأعوذ بك من شر ما في هذه الليلة وشر ما بعدها، رب أعوذ بك من الكسل وسوء الكبر، رب أعوذ بك من عذاب في النار وعذاب في القبر.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 6 )</h3>
+                <p>اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء لك بنعمتك علي، وأبوء بذنبي فاغفر لي فإنه لا يغفر الذنوب إلا أنت.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 7 )</h3>
+                <p>رضيت بالله رباً، وبالإسلام ديناً، وبمحمد صلى الله عليه وسلم نبياً.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 8 )</h3>
+                <p>اللهم إني أمسيت أشهِدُك، وأشهد حملة عرشك، وملائكتك، وجميع خلقك، أنك أنت الله لا إله إلا أنت وحدك لا شريك لك، وأن محمداً عبدك ورسولك.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="4">باقي: <b>4</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 9 )</h3>
+                <p>اللهم ما أمسى بي من نعمة أو بأحد من خلقك فمنك وحدك لا شريك لك، فلك الحمد ولك الشكر.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 10 )</h3>
+                <p>حسبي الله لا إله إلا هو، عليه توكلت وهو رب العرش العظيم.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="7">باقي: <b>7</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 11 )</h3>
+                <p>بسم الله الذي لا يضر مع اسمه شيء في الأرض ولا في السماء وهو السميع العليم.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 12 )</h3>
+                <p>اللهم بك أمسينا وبك أصبحنا، وبك نحيا وبك نموت وإليك المصير.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 13 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 13 )</h3>
+                <p>أمسينا على فطرة الإسلام، وعلى كلمة الإخلاص، وعلى دين نبينا محمد صلى الله عليه وسلم، وعلى ملة أبينا إبراهيم حنيفاً مسلماً وما كان من المشركين.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 14 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 14 )</h3>
+                <p>سبحان الله وبحمده: عدد خلقه، ورضا نفسه، وزنة عرشه، ومداد كلماته.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 15 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 15 )</h3>
+                <p>اللهم عافني في بدني، اللهم عافني في سمعي، اللهم عافني في بصري، لا إله إلا أنت.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 16 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 16 )</h3>
+                <p>اللهم إني أعوذ بك من الكفر والفقر، وأعوذ بك من عذاب القبر، لا إله إلا أنت.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 17 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 17 )</h3>
+                <p>اللهم إني أسألك العفو والعافية في الدنيا والآخرة، اللهم إني أسألك العفو والعافية في ديني ودنياي وأهلي ومالي، اللهم استر عوراتي وآمن روعاتي، اللهم احفظني من بين يدي ومن خلفي وعن يميني وعن شمالي ومن فوقي، وأعوذ بعظمتك أن أغتال من تحتي.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 18 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 18 )</h3>
+                <p>يا حي يا قيوم برحمتك أستغيث أصلح لي شأني كله ولا تكني إلى نفسي طرفة عين.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 19 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 19 )</h3>
+                <p>أمسينا وأمسى الملك لله رب العالمين، اللهم إني أسألك خير هذه الليلة: فتحها، ونصره، ونورها، وبركتها، وهداها، وأعوذ بك من شر ما فيها وشر ما بعدها.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 20 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 20 )</h3>
+                <p>اللهم عالم الغيب والشهادة فاطر السماوات والأرض رب كل شيء ومليكه، أشهد أن لا إله إلا أنت، أعوذ بك من شر نفسي ومن شر الشيطان وشركه، وأن أقترف على نفسي سوءاً أو أجره إلى مسلم.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 21 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 21 )</h3>
+                <p>أعوذ بكلمات الله التامات من شر ما خلق.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 22 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 22 )</h3>
+                <p>اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِينَا مُحَمَّدٍ.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="10">باقي: <b>10</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 23 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 23 )</h3>
+                <p>اللَّهُمَّ إِنَّا نَعُوذُ بِكَ مِنْ أَنْ نُشْرِكَ بِكَ شَيْئاً نَعْلَمُهُ، وَنَسْتَغْفِرُكَ لِمَا لَا نَعْلَمُهُ.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 24 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 24 )</h3>
+                <p>اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالحُزْنِ، وأعوذ بك مِنَ الْعَجْزِ وَالْكَسَلِ، وأعوذ بك مِنَ الْجبْخِ وَالْبُخْلِ، وأعوذ بك مِنْ غَلَبَةِ الدَّيْنِ، وَقَهْرِ الرِّجَالِ.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 25 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 25 )</h3>
+                <p>أستغفر الله العظيم الذي لا إله إلا هو الحي القيوم وأتوب إليه.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 26 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 26 )</h3>
+                <p>يا رب ، لك الحمد كما ينبغي لجلال وجهك ، ولعظيم سلطانك.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="3">باقي: <b>3</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 27 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 27 )</h3>
+                <p>اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْماً نَافِعاً، وَرِزْقاً طَيِّباً، وَعَمَلاً مُتَقَبَّلاً.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 28 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 28 )</h3>
+                <p>اللَّهُمَّ أَنْتَ رَبِّي لا إِلَهَ إِلا أَنْتَ ، عَلَيْكَ تَوَكَّلْتُ ، وَأَنْتَ رَبُّ الْعَرْشِ الْعَظِيمِ . مَا شَاءَ اللَّهُ كَانَ ، وَمَا لم يشْأ لم يكن ، ولا حول ولا قوة إلا باللَّهِ العلي العظيم . أعلم أن اللَّه على كل شيء قدير ، وأن اللَّه قد أحاط بكل شيء علماً . اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي ، وَمِنْ شَرِّ كُلِّ دَابَّةٍ أَنْتَ آخِذٌ بِنَاصِيَتِهَا ، إِنَّ رَبِّي عَلَى صِرَاطٍ مُسْتَقِيمٍ.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="1">باقي: <b>1</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 29 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 29 )</h3>
+                <p>لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="100">باقي: <b>100</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 30 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 30 )</h3>
+                <p>سبحان الله وبحمده.</p>
+                <div class="card-footer">
+                    <span class="counter" data-count="100">باقي: <b>100</b></span>
+                    <button class="reset-btn" onclick="resetCount(event, this)">🔄 إعادة</button>
+                </div>
+            </div>
+
+            <!-- 31 -->
+            <div class="card" onclick="decreaseCount(this)">
+                <h3>أذكار المساء ( 31 )</h3>
                 <p>أستغفر الله وأتوب إليه.</p>
                 <div class="card-footer">
                     <span class="counter" data-count="100">باقي: <b>100</b></span>
