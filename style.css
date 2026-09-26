@@ -10,7 +10,6 @@
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* متغيرات الوضع الداكن */
 [data-theme="dark"] {
     --bg-color: #121212;
     --card-bg: #1e1e1e;
@@ -39,13 +38,22 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    position: relative;
 }
 
-/* زر الوضع الداكن في أعلى اليسار */
-.theme-btn {
+/* حاوية الأزرار العلوية (زر الوضع الداكن وزر الانتقال بجانب بعضهما في اليسار) */
+.top-controls {
     position: fixed;
     top: 20px;
     left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* زر الوضع الداكن */
+.theme-btn {
     background-color: var(--btn-bg);
     border: 1px solid var(--btn-border);
     color: var(--text-color);
@@ -58,22 +66,41 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: var(--shadow);
-    z-index: 1000;
 }
 
 .theme-btn:hover {
     transform: scale(1.1);
 }
 
+/* تنسيق زر الانتقال بين الصباح والمساء العلوي */
+.switch-mode-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: bold;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.switch-mode-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
 .container {
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
+    margin-top: 40px;
 }
 
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 header h1 {
@@ -85,6 +112,7 @@ header h1 {
 header p {
     color: var(--text-muted);
     font-size: 1.1rem;
+    margin-bottom: 15px;
 }
 
 .azkar-grid {
@@ -106,19 +134,17 @@ header p {
     justify-content: space-between;
     width: 100%;
     max-width: 600px;
+    cursor: pointer;
 }
 
-/* تنسيق رأس الكارت (العنوان والعداد جنباً إلى جنب) */
-.card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+.card.completed {
+    opacity: 0.6;
+    border-top-color: var(--text-muted);
 }
 
 .card h3 {
     color: var(--primary-color);
-    margin-bottom: 0;
+    margin-bottom: 15px;
     font-size: 1.3rem;
 }
 
@@ -128,7 +154,6 @@ header p {
     margin-bottom: 20px;
 }
 
-/* تنسيق أسفل الكارت لجعل العناصر متناسقة (زر إعادة ويمينها أو يسارها حسب الرغبة) */
 .card-footer {
     display: flex;
     justify-content: space-between;
