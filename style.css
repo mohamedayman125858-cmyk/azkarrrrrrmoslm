@@ -37,19 +37,40 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px;
-    position: relative;
+    padding: 15px;
 }
 
-/* حاوية الأزرار العلوية مرتبة وثابتة بشكل لا يتداخل مع العنوان */
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 10px 0;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+/* حاوية الأزرار داخل الهيدر بشكل منظم بجانب بعضها وتحت العنوان */
 .top-controls {
-    position: absolute;
-    top: 15px;
-    left: 15px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
-    z-index: 1000;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 /* زر الوضع الداكن */
@@ -57,11 +78,11 @@ body {
     background-color: var(--btn-bg);
     border: 1px solid var(--btn-border);
     color: var(--text-color);
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +90,7 @@ body {
 }
 
 .theme-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* تنسيق زر الانتقال بين الصباح والمساء */
@@ -77,44 +98,18 @@ body {
     background-color: var(--primary-color);
     color: #ffffff;
     border: none;
-    padding: 8px 14px;
-    border-radius: 20px;
+    padding: 10px 18px;
+    border-radius: 22px;
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: bold;
     box-shadow: var(--shadow);
     transition: background-color 0.3s ease, transform 0.2s ease;
-    white-space: nowrap;
 }
 
 .switch-mode-btn:hover {
     background-color: var(--primary-hover);
     transform: translateY(-2px);
-}
-
-.container {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    margin-top: 55px; /* مساحة كافية للأزرار العلوية حتى لا تختلط بالعنوان */
-}
-
-header {
-    text-align: center;
-    margin-bottom: 25px;
-    padding: 0 10px;
-}
-
-header h1 {
-    color: var(--primary-color);
-    font-size: 2.1rem;
-    margin-bottom: 8px;
-}
-
-header p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 10px;
 }
 
 .azkar-grid {
