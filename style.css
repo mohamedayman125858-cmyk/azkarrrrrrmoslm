@@ -112,6 +112,27 @@ header p {
     transform: translateY(-2px);
 }
 
+/* تنسيق لون الزر وكرات أذكار المساء باللون العنابي بناءً على طلبك */
+.switch-mode-btn.masa-mode {
+    background-color: #800020 !important;
+}
+.switch-mode-btn.masa-mode:hover {
+    background-color: #5c0017 !important;
+}
+
+#masa-section.azkar-grid .card {
+    border-top-color: #800020;
+}
+#masa-section.azkar-grid .card h3 {
+    color: #800020;
+}
+[data-theme="dark"] #masa-section.azkar-grid .card {
+    border-top-color: #a31c3f;
+}
+[data-theme="dark"] #masa-section.azkar-grid .card h3 {
+    color: #d1496a;
+}
+
 .azkar-grid {
     display: flex;
     flex-direction: column;
