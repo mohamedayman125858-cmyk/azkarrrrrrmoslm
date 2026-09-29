@@ -66,6 +66,7 @@ function toggleAzkarMode() {
         pageSubtitle.textContent = '❀ أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ ❀';
         switchBtn.textContent = '☀️ أذكار الصباح';
         switchBtn.classList.add('masa-mode'); // إضافة اللون العنابي للزر
+        document.body.classList.add('burgundy-bg'); // تغيير الخلفية للون البرجاندي الغامق
         currentMode = 'masa';
     } else {
         masaSection.style.display = 'none';
@@ -74,6 +75,7 @@ function toggleAzkarMode() {
         pageSubtitle.textContent = '❀ اللَّهُمَّ صَلِّ وَسَلِّمْ وَبَارِكْ عَلَى نَبِينَا مُحَمَّدٍ ❀';
         switchBtn.textContent = '🌙 أذكار المساء';
         switchBtn.classList.remove('masa-mode'); // العودة للون العادي للزر
+        document.body.classList.remove('burgundy-bg'); // إزالة خلفية البرجاندي العودة للخلفية الأصلية
         currentMode = 'sabah';
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
